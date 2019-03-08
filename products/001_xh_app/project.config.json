@@ -1,0 +1,13 @@
+{
+  "description": "This is an online medical program that supports online booking, registration and payment.",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "wxc598423794d98a13",
+  "projectname": "001_xh_app",
+  "miniprogramRoot": "./dist"
+}

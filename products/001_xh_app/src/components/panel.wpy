@@ -1,0 +1,43 @@
+<style lang="less">
+  .panel {
+    width: 100%;
+    margin-top: unit(20, rpx);
+    text-align: left;
+    font-size: 12px;
+    padding-top: unit(20, rpx);
+    padding-left: unit(50, rpx);
+    padding-bottom: unit(20, rpx);
+    border: 1px solid #ccc;
+
+    .title {
+      padding-bottom: unit(20, rpx);
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .info {
+      padding: unit(15, rpx);
+    }
+    .testcounter {
+      margin-top: unit(15, rpx);
+      position: absolute;
+    }
+    .counterview {
+      margin-left: unit(120, rpx);
+    }
+  }
+</style>
+<template>
+  <view class="panel">
+    <slot name="title">
+      Title
+    </slot>
+    <slot>
+    </slot>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy';
+
+  export default class Panel extends wepy.component {
+  }
+</script>
