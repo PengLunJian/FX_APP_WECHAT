@@ -18,15 +18,16 @@ module.exports = {
       '@': path.join(__dirname, 'src')
     },
     aliasFields: ['wepy', 'weapp'],
-    modules: ['node_modules']
+    modules: ['node_modules'],
+    extensions: ['', '.js', '.json', '.wpy', '.less', '.css']
   },
   compilers: {
     less: {
       compress: prod
     },
-    /*sass: {
+    /* sass: {
       outputStyle: 'compressed'
-    },*/
+    }, */
     babel: {
       sourceMap: true,
       presets: [
@@ -36,19 +37,17 @@ module.exports = {
         'transform-class-properties',
         'transform-decorators-legacy',
         'transform-object-rest-spread',
-        'transform-export-extensions',
+        'transform-export-extensions'
       ]
     }
   },
-  plugins: {
-  },
+  plugins: {},
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
   }
-}
+};
 
 if (prod) {
-
   // 压缩sass
   // module.exports.compilers['sass'] = {outputStyle: 'compressed'}
 
@@ -56,8 +55,7 @@ if (prod) {
   module.exports.plugins = {
     uglifyjs: {
       filter: /\.js$/,
-      config: {
-      }
+      config: {}
     },
     imagemin: {
       filter: /\.(jpg|png|jpeg)$/,
@@ -70,5 +68,5 @@ if (prod) {
         }
       }
     }
-  }
+  };
 }

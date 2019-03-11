@@ -1,0 +1,33 @@
+<style scoped lang="less">
+  @import '../../assets/less/variable';
+
+</style>
+
+<template>
+  <view class="container">
+    <productItem></productItem>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import ProductItem from '../../components/product-item';
+
+  export default class Home extends wepy.page {
+    config = {
+      navigationBarTitleText: '首页'
+    }
+
+    components = {
+      ProductItem
+    }
+
+    data = {}
+
+    methods = {}
+
+    onLoad() {
+      console.log('我是首页');
+    }
+  }
+</script>

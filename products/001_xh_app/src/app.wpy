@@ -1,4 +1,4 @@
-<style lang="less">
+<style scoped lang="less">
   .container {
     height: 100%;
     display: flex;
@@ -21,7 +21,7 @@
   export default class extends wepy.app {
     config = {
       pages: [
-        'pages/index'
+        'pages/home/home'
       ],
       window: {
         backgroundTextStyle: 'light',

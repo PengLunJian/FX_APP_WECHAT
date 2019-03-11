@@ -1,0 +1,36 @@
+<style scoped lang="less">
+  @import '../assets/less/variable';
+
+  .product {
+    .product-img {
+    }
+    .product-info {
+    }
+  }
+</style>
+
+<template>
+  <view class="product">
+    <view class="product-img">
+      <image src="../assets/images/iphone.jpg"></image>
+    </view>
+    <view class="product-info"></view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class ProductItem extends wepy.component {
+    config = {
+      usingComponents: {}
+    }
+
+    data = {}
+
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>
