@@ -1,17 +1,17 @@
-<style scoped lang="less">
+<style lang="less">
   @import '../../assets/less/variable';
 
 </style>
 
 <template>
   <view class="container">
-    <productItem></productItem>
+    <product></product>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy';
-  import ProductItem from '../../components/product-item';
+  import product from '../../components/product';
 
   export default class Home extends wepy.page {
     config = {
@@ -19,7 +19,7 @@
     }
 
     components = {
-      ProductItem
+      product
     }
 
     data = {}
