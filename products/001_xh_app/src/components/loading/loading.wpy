@@ -1,0 +1,108 @@
+<style scoped lang="less">
+  @import '../../assets/less/variable';
+
+  .loading {
+    .loading-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+      background-color: @transparent;
+    }
+    .loading-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 1000;
+      padding: unit(40, rpx) 0;
+      width: unit(200, rpx);
+      height: unit(200, rpx);
+      margin-top: unit(-240, rpx);
+      margin-left: unit(-100, rpx);
+      border-radius: @borderRadius;
+      background-color: rgba(0, 0, 0, .7);
+      .loading-icon {
+        width: unit(60, rpx);
+        height: unit(60, rpx);
+        margin: 0 auto;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url("http://sersms.com:10001/loading.svg");
+        box-shadow: 0 0 unit(30, rpx) @boxShadow;
+        animation: rotate 1s steps(12, end) infinite;
+      }
+      .loading-text {
+        height: unit(40, rpx);
+        line-height: unit(40, rpx);
+        margin-top: unit(20, rpx);
+        font-size: unit(34, rpx) !important;
+        text-align: center;
+        color: @white;
+      }
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg)
+    }
+
+    to {
+      -webkit-transform: rotate(1turn);
+      transform: rotate(1turn)
+    }
+  }
+</style>
+
+<template>
+  <view class="loading fade{{isLoading?'':' hide'}}" wx:if="{{isShow}}">
+    <view class="loading-bg"></view>
+    <view class="loading-content">
+      <view class="loading-icon"></view>
+      <view class="loading-text">加载中...</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class Loading extends wepy.component {
+    config = {
+      usingComponents: {}
+    }
+
+    data = {
+      isShow: false
+    }
+
+    props = {
+      isLoading: Boolean
+    }
+
+    watch = {
+      isLoading() {
+        const {isLoading} = this;
+        if (isLoading) {
+          this.isShow = isLoading;
+          this.$apply();
+        } else {
+          setTimeout(() => {
+            this.isShow = isLoading;
+            this.$apply();
+          }, 300);
+        }
+      }
+    }
+
+    methods = {}
+
+    onLoad() {
+      // console.log(this);
+    }
+  }
+</script>

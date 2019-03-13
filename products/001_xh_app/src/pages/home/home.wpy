@@ -1,25 +1,60 @@
 <style lang="less">
   @import '../../assets/less/variable';
 
+  .XH_NCYD_HOME {
+    width: 100%;
+    height: 100vh;
+    background-color: @bgBlue;
+    padding: unit(60, rpx) unit(30, rpx);
+  }
+
 </style>
 
 <template>
-  <view class="container">
-    <product></product>
+  <view class="XH_NCYD_HOME">
+    <Loading :isLoading.sync="isLoading"></Loading>
+    <Empty :isSuccess.sync="isSuccess" :data.sync="isData"></Empty>
+    <Error :isFailure.sync="isFailure" @onRefresh="onRefresh"></Error>
+    <QRCode :isSuccess.sync="isSuccess" :data.sync="isData"></QRCode>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy';
-  import product from '../../components/product';
+  import {connect} from 'wepy-redux';
+  import {
+    ajaxRequestSelectPayment
+  } from '../../store/actions';
+
+  import Loading from '../../components/loading/loading';
+  import Empty from '../../components/empty/empty';
+  import Error from '../../components/error/error';
+  import QRCode from '../../components/qrcode/qrcode';
+
+  @connect(
+    {
+      isLoading: state => state.HOME_REDUCER.payment.isLoading,
+      isSuccess: state => state.HOME_REDUCER.payment.isSuccess,
+      isFailure: state => state.HOME_REDUCER.payment.isFailure,
+      isData: state => state.HOME_REDUCER.payment.data
+    },
+    {
+      ajaxRequestSelectPayment
+    }
+  )
 
   export default class Home extends wepy.page {
     config = {
-      navigationBarTitleText: '首页'
+      navigationBarTitleText: '扫码支付',
+      navigationBarTextStyle: 'white',
+      navigationBarBackgroundColor: '#118eea'
     }
 
     components = {
-      product
+      Loading,
+      Empty,
+      Error,
+      QRCode
     }
 
     data = {}
@@ -27,7 +62,7 @@
     methods = {}
 
     onLoad() {
-      console.log('我是首页');
+      this.methods.ajaxRequestSelectPayment();
     }
   }
 </script>

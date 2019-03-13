@@ -9,12 +9,12 @@ const request = (url, options) => {
   const data = options.method === 'GET'
     ? options.data : JSON.stringify(options.data);
   return new Promise((resolve, reject) => {
-    wx.httpRequest({
+    wx.request({
       url: apis.baseUrl + url,
       method: options.methed,
       data: data,
       timeout: apis.timeout,
-      headers: apis.headers,
+      header: apis.header,
       dataType: apis.dataType,
       success: (res) => {
         setTimeout(() => {
@@ -52,7 +52,7 @@ export const get = (api, data = {}) => {
  * @param {*} options
  */
 export const post = (api, options) => {
-  const data = Object.assign(api.params, options);
+  const data = Object.assign({}, api.params, options);
   return request(api.url, {methed: 'POST', data: data});
 };
 /**

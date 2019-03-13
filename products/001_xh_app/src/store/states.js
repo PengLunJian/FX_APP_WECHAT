@@ -1,11 +1,5 @@
 export const HOME_STATE = {
-  products: {
-    isLoading: false,
-    isSuccess: false,
-    isFailure: false,
-    data: null
-  },
-  banners: {
+  payment: {
     isLoading: false,
     isSuccess: false,
     isFailure: false,

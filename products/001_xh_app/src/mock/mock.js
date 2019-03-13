@@ -1,11 +1,10 @@
 import Mock from 'mockjs';
 import apis from '../apis';
 import * as data from './data';
-import * as utils from '../utils';
-
-Mock.setup({
-  timeout: 1500
-});
+// import * as utils from '../utils';
+// Mock.setup({
+//   timeout: 1500
+// });
 
 Mock.exeMock = (apiMain, callback) => {
   Mock.mock(apis.baseUrl + apiMain.url, apis.method, (response) => {
@@ -13,11 +12,10 @@ Mock.exeMock = (apiMain, callback) => {
   });
 };
 
-Mock.exeMock(apis.selectAccount, (response) => {
+Mock.exeMock(apis.selectPayment, (response) => {
   return data.data1;
 });
 
-Mock.exeMock(apis.selectProducts, (response) => {
-  const newData = utils.pagination(data.data2);
-  return newData;
+Mock.mock(apis.selectPayment.url, apis.method, (response) => {
+  return data.data1;
 });

@@ -1,5 +1,5 @@
+import store from './index';
 import apis from '../apis/index';
-import configStore from './index';
 import * as $ajax from '../ajax/index';
 import * as actionTypes from './actionTypes';
 
@@ -8,33 +8,33 @@ import * as actionTypes from './actionTypes';
  * @param type
  * @param data
  */
-const commit = (type, data) => {
-  const store = configStore();
+export const commit = (type, data) => {
   store.dispatch({
     type,
     data
   });
 };
+
 /**
  *
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectProducts = (data) => {
-  commit(actionTypes.SELECT_PRODUCTS_REQUEST);
+export const ajaxRequestSelectPayment = () => {
+  commit(actionTypes.SELECT_PAYMENT_REQUEST);
   return new Promise((resolve, reject) => {
-    $ajax.post(apis.selectProducts, data)
+    $ajax.post(apis.selectPayment)
       .then((res) => {
         res = res || {};
         const {data, success} = res;
         if (success) {
-          commit(actionTypes.SELECT_PRODUCTS_SUCCESS, data);
+          commit(actionTypes.SELECT_PAYMENT_SUCCESS, data);
         } else {
-          commit(actionTypes.SELECT_PRODUCTS_FAILURE);
+          commit(actionTypes.SELECT_PAYMENT_FAILURE);
         }
         resolve(res);
       })
       .catch((err) => {
-        commit(actionTypes.SELECT_PRODUCTS_FAILURE);
+        commit(actionTypes.SELECT_PAYMENT_FAILURE);
         reject(err);
       });
   });
