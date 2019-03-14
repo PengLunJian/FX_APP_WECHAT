@@ -41,7 +41,9 @@ module.exports = {
       ]
     }
   },
-  plugins: {},
+  plugins: {
+    axios: {}
+  },
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
   }
@@ -67,6 +69,7 @@ if (prod) {
           quality: 80
         }
       }
-    }
+    },
+    axios: {}
   };
 }

@@ -15,7 +15,3 @@ Mock.exeMock = (apiMain, callback) => {
 Mock.exeMock(apis.selectPayment, (response) => {
   return data.data1;
 });
-
-Mock.mock(apis.selectPayment.url, apis.method, (response) => {
-  return data.data1;
-});

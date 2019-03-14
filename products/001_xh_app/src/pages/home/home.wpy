@@ -13,40 +13,28 @@
 <template>
   <view class="XH_NCYD_HOME">
     <Loading :isLoading.sync="isLoading"></Loading>
-    <Empty :isSuccess.sync="isSuccess" :data.sync="isData"></Empty>
+    <!--<Empty :isSuccess.sync="isSuccess" :data.sync="isData"></Empty>-->
     <Error :isFailure.sync="isFailure" @onRefresh="onRefresh"></Error>
-    <QRCode :isSuccess.sync="isSuccess" :data.sync="isData"></QRCode>
+    <!--<Module :isSuccess.sync="isSuccess" :data.sync="isData"></Module>-->
   </view>
 </template>
 
 <script>
   import wepy from 'wepy';
   import {connect} from 'wepy-redux';
-  import {
-    ajaxRequestSelectPayment
-  } from '../../store/actions';
+  import * as controller from './controller';
 
   import Loading from '../../components/loading/loading';
   import Empty from '../../components/empty/empty';
   import Error from '../../components/error/error';
-  import QRCode from '../../components/qrcode/qrcode';
+  import Module from '../../components/qrcode/qrcode';
 
-  @connect(
-    {
-      isLoading: state => state.HOME_REDUCER.payment.isLoading,
-      isSuccess: state => state.HOME_REDUCER.payment.isSuccess,
-      isFailure: state => state.HOME_REDUCER.payment.isFailure,
-      isData: state => state.HOME_REDUCER.payment.data
-    },
-    {
-      ajaxRequestSelectPayment
-    }
-  )
+  @connect(controller.STATES, controller.ACTIONS)
 
   export default class Home extends wepy.page {
     config = {
-      navigationBarTitleText: '扫码支付',
       navigationBarTextStyle: 'white',
+      navigationBarTitleText: '扫码支付',
       navigationBarBackgroundColor: '#118eea'
     }
 
@@ -54,7 +42,7 @@
       Loading,
       Empty,
       Error,
-      QRCode
+      Module
     }
 
     data = {}

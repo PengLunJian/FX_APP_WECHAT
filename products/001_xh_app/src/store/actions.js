@@ -1,6 +1,6 @@
+import apis from '../apis';
 import store from './index';
-import apis from '../apis/index';
-import * as $ajax from '../ajax/index';
+import axios from '../axios';
 import * as actionTypes from './actionTypes';
 
 /**
@@ -22,7 +22,7 @@ export const commit = (type, data) => {
 export const ajaxRequestSelectPayment = () => {
   commit(actionTypes.SELECT_PAYMENT_REQUEST);
   return new Promise((resolve, reject) => {
-    $ajax.post(apis.selectPayment)
+    axios.post(apis.selectPayment)
       .then((res) => {
         res = res || {};
         const {data, success} = res;

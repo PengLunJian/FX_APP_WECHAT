@@ -5,7 +5,7 @@
 
 <script>
   import wepy from 'wepy';
-  import './mock/mock.js';
+  // import './mock/mock.js';
   import 'wepy-async-function';
   import {setStore} from 'wepy-redux';
   import store from './store';
@@ -31,19 +31,20 @@
 
     constructor() {
       super();
+      // this.use('promisify');
       this.use('requestfix');
     }
 
     onLaunch() {
-      this.testAsync();
+      // this.testAsync();
     }
 
     sleep(s) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve('promise resolved');
-        }, s * 1000);
-      });
+      // return new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve('promise resolved');
+      //   }, s * 1000);
+      // });
     }
 
     async testAsync() {

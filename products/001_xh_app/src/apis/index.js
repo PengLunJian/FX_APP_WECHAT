@@ -1,9 +1,9 @@
 const apis = {
-  baseUrl: 'http://192.168.1.196/',
-  method: 'POST',
+  baseUrl: 'http://192.168.1.196/api/',
+  method: 'post',
   timeout: 20000,
   dataType: 'json',
-  header: {
+  headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json; charset=UTF-8'
   },
