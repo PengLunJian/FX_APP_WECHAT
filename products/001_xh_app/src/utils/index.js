@@ -1,3 +1,4 @@
-export const pagination = (data) => {
-  return data;
+export const success = () => {
+  const nums = parseInt(Math.random() * 100);
+  return nums % 5 !== 0;
 };

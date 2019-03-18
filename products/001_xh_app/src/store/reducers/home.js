@@ -4,7 +4,6 @@ import * as states from '../states';
 
 const actions = {
   [actionTypes.SELECT_PAYMENT_REQUEST](state) {
-    console.log('request');
     return {
       ...state,
       payment: Object.assign({}, state.payment, {
@@ -16,7 +15,6 @@ const actions = {
     };
   },
   [actionTypes.SELECT_PAYMENT_SUCCESS](state, action) {
-    console.log('success');
     return {
       ...state,
       payment: Object.assign({}, state.payment, {
@@ -28,7 +26,6 @@ const actions = {
     };
   },
   [actionTypes.SELECT_PAYMENT_FAILURE](state) {
-    console.log('failure');
     return {
       ...state,
       payment: Object.assign({}, state.payment, {

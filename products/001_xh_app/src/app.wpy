@@ -5,7 +5,6 @@
 
 <script>
   import wepy from 'wepy';
-  // import './mock/mock.js';
   import 'wepy-async-function';
   import {setStore} from 'wepy-redux';
   import store from './store';

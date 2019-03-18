@@ -2,6 +2,7 @@ import apis from '../apis';
 import store from './index';
 import axios from '../axios';
 import * as actionTypes from './actionTypes';
+import * as resData from '../mock/data';
 
 /**
  *
@@ -24,7 +25,9 @@ export const ajaxRequestSelectPayment = () => {
   return new Promise((resolve, reject) => {
     axios.post(apis.selectPayment)
       .then((res) => {
+        res = resData.HOME;
         res = res || {};
+        console.log(res);
         const {data, success} = res;
         if (success) {
           commit(actionTypes.SELECT_PAYMENT_SUCCESS, data);
