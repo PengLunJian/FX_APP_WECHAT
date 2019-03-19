@@ -4,7 +4,7 @@
   .product {
     display: flex;
     background-color: @white;
-    border-top: 1px solid @borderColor1;
+    border-top: 0.5px solid @borderColor1;
     .product-img {
       flex: 1;
       image {
@@ -17,7 +17,7 @@
       padding: unit(30, rpx) unit(10, rpx);
       .product-title {
         margin-bottom: unit(10, rpx);
-        font-size: unit(36, rpx);
+        font-size: unit(32, rpx);
       }
       .product-type {
         margin-bottom: unit(10, rpx);
@@ -25,7 +25,7 @@
         color: @fontColor3;
       }
       .product-price {
-        font-size: unit(36, rpx);
+        font-size: unit(32, rpx);
         color: @colorPrice;
       }
     }

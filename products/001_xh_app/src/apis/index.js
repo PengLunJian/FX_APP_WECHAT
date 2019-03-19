@@ -1,7 +1,7 @@
 const apis = {
   baseUrl: 'http://192.168.1.196/api/',
   method: 'post',
-  timeout: 20000,
+  timeout: 5000,
   dataType: 'json',
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
@@ -21,6 +21,9 @@ const apis = {
   },
   selectPayment: {
     url: 'select/payment'
+  },
+  selectProduct: {
+    url: 'select/product'
   }
 };
 

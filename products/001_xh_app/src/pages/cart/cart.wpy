@@ -1,4 +1,4 @@
-<style scoped lang="less">
+<style lang="less">
   @import '../../assets/less/variable';
 
 </style>
@@ -26,10 +26,10 @@
 
   export default class Payment extends wepy.page {
     config = {
-      navigationBarTitleText: '支付'
+      navigationBarTextStyle: 'white',
+      navigationBarTitleText: '购物车',
+      navigationBarBackgroundColor: '#118eea'
     }
-
-    data = {}
 
     components = {
       Loading,
@@ -38,9 +38,8 @@
       Content
     }
 
-    methods = {}
-
     onLoad() {
+      this.methods.selectProduct();
     }
   }
 </script>

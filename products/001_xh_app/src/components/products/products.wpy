@@ -4,15 +4,19 @@
 </style>
 
 <template>
-  <view class="content fade">
-    <repeat for="{{items}}" key="index" index="index" item="item">
-      <Product :item.sync="item"></Product>
-    </repeat>
+  <view class="content fade" wx:if="{{isShow}}">
+    <view class="module">
+      <repeat for="{{isData}}" key="index" index="index" item="item">
+        <Product :item="item"></Product>
+      </repeat>
+    </view>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy';
+  import * as utils from '../../utils';
+
   import Product from '../product/product';
 
   export default class Products extends wepy.component {
@@ -25,10 +29,34 @@
     }
 
     data = {
-      items: [{}, {}, {}, {}, {}]
+      isShow: false
     }
 
-    methods = {}
+    props = {
+      isSuccess: Boolean,
+      isData: Object
+    }
+
+    watch = {
+      isSuccess() {
+        const {isSuccess, isData} = this;
+        if (isSuccess && !utils.isExist(isData)) {
+          this.isShow = true;
+        } else {
+          this.isShow = false;
+        }
+        this.$apply();
+      },
+      isData() {
+        const {isSuccess, isData} = this;
+        if (isSuccess && !utils.isExist(isData)) {
+          this.isShow = true;
+        } else {
+          this.isShow = false;
+        }
+        this.$apply();
+      }
+    }
 
     onLoad() {
     }

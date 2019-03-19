@@ -33,9 +33,17 @@
 			"current": 0,
 			"list": [
 				{
+					"id": 0,
+					"name": "cart",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "payment",
-					"pathName": "pages/payment/payment",
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
 					"scene": null
 				}
 			]

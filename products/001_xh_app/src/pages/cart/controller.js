@@ -1,6 +1,4 @@
-import {
-  ajaxRequestSelectProduct
-} from '../../store/actions';
+import * as actions from '../../store/actions';
 
 export const STATES = {
   isLoading: state => state.ZFYM_REDUCER.product.isLoading,
@@ -10,5 +8,5 @@ export const STATES = {
 };
 
 export const ACTIONS = {
-  ajaxRequestSelectProduct
+  selectProduct: actions.ajaxRequestSelectProduct
 };

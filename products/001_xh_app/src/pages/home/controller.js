@@ -1,6 +1,4 @@
-import {
-  ajaxRequestSelectPayment
-} from '../../store/actions';
+import * as actions from '../../store/actions';
 
 export const STATES = {
   isLoading: state => state.HOME_REDUCER.payment.isLoading,
@@ -10,5 +8,5 @@ export const STATES = {
 };
 
 export const ACTIONS = {
-  ajaxRequestSelectPayment
+  selectPayment: actions.ajaxRequestSelectPayment
 };

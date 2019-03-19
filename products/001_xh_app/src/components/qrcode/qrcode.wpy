@@ -103,8 +103,6 @@
       isData: Object
     }
 
-    methods = {}
-
     watch = {
       isSuccess() {
         const {isSuccess, isData} = this;

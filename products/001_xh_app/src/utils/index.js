@@ -4,7 +4,7 @@
  */
 export const success = () => {
   const nums = parseInt(Math.random() * 100);
-  return nums % 5 !== 0;
+  return nums % 10 !== 0;
 };
 /**
  *

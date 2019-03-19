@@ -5,7 +5,6 @@
 
 <script>
   import wepy from 'wepy';
-  // import './mock/_mock';
   import 'wepy-async-function';
   import {setStore} from 'wepy-redux';
   import store from './store';
@@ -16,13 +15,13 @@
     config = {
       pages: [
         'pages/home/home',
-        'pages/payment/payment'
+        'pages/cart/cart'
       ],
       window: {
         backgroundTextStyle: 'light',
-        navigationBarBackgroundColor: '#fff',
+        navigationBarTextStyle: 'black',
         navigationBarTitleText: 'WeChat',
-        navigationBarTextStyle: 'black'
+        navigationBarBackgroundColor: '#ffffff'
       }
     }
 

@@ -6,7 +6,7 @@ const actions = {
   [actionTypes.SELECT_PRODUCT_REQUEST](state) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      product: Object.assign({}, state.product, {
         isLoading: true,
         isSuccess: false,
         isFailure: false,
@@ -17,7 +17,7 @@ const actions = {
   [actionTypes.SELECT_PRODUCT_SUCCESS](state, action) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      product: Object.assign({}, state.product, {
         isLoading: false,
         isSuccess: true,
         isFailure: false,
@@ -28,7 +28,7 @@ const actions = {
   [actionTypes.SELECT_PRODUCT_FAILURE](state) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      product: Object.assign({}, state.product, {
         isLoading: false,
         isSuccess: false,
         isFailure: true,
