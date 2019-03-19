@@ -14,5 +14,5 @@ Mock.exeMock = (apiMain, callback) => {
 };
 
 Mock.exeMock(apis.selectPayment, (response) => {
-  return data.data1;
+  return data.HOME;
 });

@@ -6,11 +6,39 @@
 		"postcss": false,
 		"minified": false,
 		"newFeature": true,
-		"nodeModules": true
+		"nodeModules": false,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"appid": "wxc598423794d98a13",
 	"projectname": "001_xh_app",
 	"miniprogramRoot": "dist/",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "payment",
+					"pathName": "pages/payment/payment",
+					"scene": null
+				}
+			]
+		}
+	}
 }

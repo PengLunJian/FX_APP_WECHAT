@@ -5,6 +5,7 @@
 
 <script>
   import wepy from 'wepy';
+  // import './mock/_mock';
   import 'wepy-async-function';
   import {setStore} from 'wepy-redux';
   import store from './store';
@@ -14,7 +15,8 @@
   export default class extends wepy.app {
     config = {
       pages: [
-        'pages/home/home'
+        'pages/home/home',
+        'pages/payment/payment'
       ],
       window: {
         backgroundTextStyle: 'light',

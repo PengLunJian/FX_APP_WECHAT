@@ -87,6 +87,7 @@
 
 <script>
   import wepy from 'wepy';
+  import * as utils from '../../utils';
 
   export default class QRCode extends wepy.component {
     config = {
@@ -103,6 +104,27 @@
     }
 
     methods = {}
+
+    watch = {
+      isSuccess() {
+        const {isSuccess, isData} = this;
+        if (isSuccess && !utils.isExist(isData)) {
+          this.isShow = true;
+        } else {
+          this.isShow = false;
+        }
+        this.$apply();
+      },
+      isData() {
+        const {isSuccess, isData} = this;
+        if (isSuccess && !utils.isExist(isData)) {
+          this.isShow = true;
+        } else {
+          this.isShow = false;
+        }
+        this.$apply();
+      }
+    }
 
     onLoad() {
     }

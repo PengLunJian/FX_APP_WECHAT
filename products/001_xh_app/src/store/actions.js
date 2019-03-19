@@ -1,8 +1,8 @@
 import apis from '../apis';
 import store from './index';
 import axios from '../axios';
-import * as actionTypes from './actionTypes';
 import * as resData from '../mock/data';
+import * as actionTypes from './actionTypes';
 
 /**
  *
@@ -15,7 +15,6 @@ export const commit = (type, data) => {
     data
   });
 };
-
 /**
  *
  * @returns {Promise<any>}
@@ -27,7 +26,6 @@ export const ajaxRequestSelectPayment = () => {
       .then((res) => {
         res = resData.HOME;
         res = res || {};
-        console.log(res);
         const {data, success} = res;
         if (success) {
           commit(actionTypes.SELECT_PAYMENT_SUCCESS, data);
@@ -38,6 +36,31 @@ export const ajaxRequestSelectPayment = () => {
       })
       .catch((err) => {
         commit(actionTypes.SELECT_PAYMENT_FAILURE);
+        reject(err);
+      });
+  });
+};
+/**
+ *
+ * @returns {Promise<any>}
+ */
+export const ajaxRequestSelectProduct = () => {
+  commit(actionTypes.SELECT_PRODUCT_REQUEST);
+  return new Promise((resolve, reject) => {
+    axios.post(apis.selectProduct)
+      .then((res) => {
+        res = resData.ZFYM;
+        res = res || {};
+        const {data, success} = res;
+        if (success) {
+          commit(actionTypes.SELECT_PRODUCT_SUCCESS, data);
+        } else {
+          commit(actionTypes.SELECT_PRODUCT_FAILURE);
+        }
+        resolve(res);
+      })
+      .catch((err) => {
+        commit(actionTypes.SELECT_PRODUCT_FAILURE);
         reject(err);
       });
   });

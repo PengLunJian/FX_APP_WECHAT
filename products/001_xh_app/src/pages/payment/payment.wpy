@@ -1,0 +1,46 @@
+<style scoped lang="less">
+  @import '../../assets/less/variable';
+
+</style>
+
+<template>
+  <view class="XH_NCYD_ZFYM">
+    <Loading :isLoading.sync="isLoading"></Loading>
+    <Empty :isSuccess.sync="isSuccess" :isData.sync="isData"></Empty>
+    <Error :isFailure.sync="isFailure" @onRefresh="onRefresh"></Error>
+    <Content :isSuccess.sync="isSuccess" :isData.sync="isData"></Content>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import {connect} from 'wepy-redux';
+  import * as controller from './controller';
+
+  import Loading from '../../components/loading/loading';
+  import Empty from '../../components/empty/empty';
+  import Error from '../../components/error/error';
+  import Content from '../../components/products/products';
+
+  @connect(controller.STATES, controller.ACTIONS)
+
+  export default class Payment extends wepy.page {
+    config = {
+      navigationBarTitleText: '支付'
+    }
+
+    data = {}
+
+    components = {
+      Loading,
+      Empty,
+      Error,
+      Content
+    }
+
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>

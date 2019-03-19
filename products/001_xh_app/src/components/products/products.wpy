@@ -1,0 +1,36 @@
+<style scoped lang="less">
+  @import '../../assets/less/variable';
+
+</style>
+
+<template>
+  <view class="content fade">
+    <repeat for="{{items}}" key="index" index="index" item="item">
+      <Product :item.sync="item"></Product>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import Product from '../product/product';
+
+  export default class Products extends wepy.component {
+    config = {
+      usingComponents: {}
+    }
+
+    components = {
+      Product
+    }
+
+    data = {
+      items: [{}, {}, {}, {}, {}]
+    }
+
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>

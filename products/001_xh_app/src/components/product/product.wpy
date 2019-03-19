@@ -1,0 +1,67 @@
+<style scoped lang="less">
+  @import '../../assets/less/variable';
+
+  .product {
+    display: flex;
+    background-color: @white;
+    border-top: 1px solid @borderColor1;
+    .product-img {
+      flex: 1;
+      image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .product-info {
+      flex: 2;
+      padding: unit(30, rpx) unit(10, rpx);
+      .product-title {
+        margin-bottom: unit(10, rpx);
+        font-size: unit(36, rpx);
+      }
+      .product-type {
+        margin-bottom: unit(10, rpx);
+        font-size: unit(24, rpx);
+        color: @fontColor3;
+      }
+      .product-price {
+        font-size: unit(36, rpx);
+        color: @colorPrice;
+      }
+    }
+  }
+</style>
+
+<template>
+  <view class="product">
+    <view class="product-img">
+      <image src="../../assets/images/product.jpg" mode="aspectFit"></image>
+    </view>
+    <view class="product-info">
+      <view class="product-title">蒲地蓝消炎口服液</view>
+      <view class="product-type">规格：10ml*10支 数量：2盒</view>
+      <view class="product-price">￥84.00</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class Product extends wepy.component {
+    config = {
+      usingComponents: {}
+    }
+
+    data = {}
+
+    props = {
+      item: Object
+    }
+
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>
