@@ -14,7 +14,7 @@ const request = (url, options) => {
       method: options.methed,
       data: data,
       timeout: apis.timeout,
-      header: apis.header,
+      header: apis.headers,
       dataType: apis.dataType,
       success: (res) => {
         setTimeout(() => {

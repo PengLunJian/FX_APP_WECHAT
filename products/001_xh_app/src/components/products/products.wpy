@@ -1,6 +1,38 @@
 <style scoped lang="less">
   @import '../../assets/less/variable';
 
+  .footer {
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: @white;
+    box-shadow: @boxShadow1;
+    .footer-item {
+      flex: 1;
+      display: flex;
+      text-align: center;
+      line-height: unit(100, rpx);
+      .total-price {
+        text {
+          color: @colorPrice;
+        }
+      }
+      .btn {
+        flex: 1;
+        border: none !important;
+        border-radius: 0;
+        &.btn-default {
+          color: @white;
+          background-color: orangered;
+        }
+        &.btn-confirm {
+          color: @white;
+          background-color: @bgBlue;
+        }
+      }
+    }
+  }
 </style>
 
 <template>
@@ -9,6 +41,20 @@
       <repeat for="{{isData}}" key="index" index="index" item="item">
         <Product :item="item"></Product>
       </repeat>
+    </view>
+    <view class="module">
+      <view class="footer">
+        <view class="footer-item">
+          <view class="total-price">
+            合计
+            <text>￥216.00</text>
+          </view>
+        </view>
+        <view class="footer-item">
+          <view class="btn btn-default">自付</view>
+          <view class="btn btn-confirm">代付</view>
+        </view>
+      </view>
     </view>
   </view>
 </template>
