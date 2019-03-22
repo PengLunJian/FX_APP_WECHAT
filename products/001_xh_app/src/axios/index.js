@@ -35,14 +35,14 @@ Axios.interceptors.response.use(
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(response.data);
-      }, 1000);
+      }, 1500);
     });
   },
   (error) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(error.response);
-      }, 1000);
+      }, 1500);
     });
   });
 

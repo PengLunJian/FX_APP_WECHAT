@@ -14,8 +14,8 @@
   export default class extends wepy.app {
     config = {
       pages: [
-        'pages/home/home',
-        'pages/cart/cart'
+        'pages/cart/cart',
+        'pages/home/home'
       ],
       window: {
         backgroundTextStyle: 'light',
@@ -31,25 +31,11 @@
 
     constructor() {
       super();
-      // this.use('promisify');
       this.use('requestfix');
+      this.use('promisify');
     }
 
     onLaunch() {
-      // this.testAsync();
-    }
-
-    sleep(s) {
-      // return new Promise((resolve, reject) => {
-      //   setTimeout(() => {
-      //     resolve('promise resolved');
-      //   }, s * 1000);
-      // });
-    }
-
-    async testAsync() {
-      const data = await this.sleep(3);
-      console.log(data);
     }
 
     getUserInfo(cb) {

@@ -44,7 +44,20 @@
     }
 
     onLoad() {
-      this.methods.selectPayment();
+      this.selectQRCode()
+        .then((res) => {
+          console.log(res);
+          console.log('success:可根据返回值Toast');
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log('error:可根据返回值Toast');
+        });
+    }
+
+    async selectQRCode() {
+      const result = await this.methods.selectQRCode();
+      return result.payload;
     }
   }
 </script>

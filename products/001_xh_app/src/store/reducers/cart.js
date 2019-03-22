@@ -38,6 +38,6 @@ const actions = {
   }
 };
 
-const ZFYM_REDUCER = handleActions(actions, states.ZFYM_STATE);
+const CART_REDUCER = handleActions(actions, states.CART_STATE);
 
-export default ZFYM_REDUCER;
+export default CART_REDUCER;

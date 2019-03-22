@@ -3,13 +3,14 @@ import store from './index';
 import axios from '../axios';
 import * as resData from '../mock/data';
 import * as actionTypes from './actionTypes';
+import {createAction} from 'redux-actions';
 
 /**
  *
  * @param type
  * @param data
  */
-export const commit = (type, data) => {
+const commit = (type, data) => {
   store.dispatch({
     type,
     data
@@ -19,49 +20,49 @@ export const commit = (type, data) => {
  *
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectPayment = () => {
-  commit(actionTypes.SELECT_PAYMENT_REQUEST);
-  return new Promise((resolve, reject) => {
-    axios.post(apis.selectPayment)
-      .then((res) => {
-        res = resData.HOME;
-        res = res || {};
-        const {data, success} = res;
-        if (success) {
-          commit(actionTypes.SELECT_PAYMENT_SUCCESS, data);
-        } else {
-          commit(actionTypes.SELECT_PAYMENT_FAILURE);
-        }
-        resolve(res);
-      })
-      .catch((err) => {
-        commit(actionTypes.SELECT_PAYMENT_FAILURE);
-        reject(err);
-      });
+export const ajaxRequestSelectQRCode = createAction(
+  actionTypes.SELECT_QRCODE_REQUEST, () => {
+    return new Promise((resolve, reject) => {
+      axios.post(apis.selectQRCode)
+        .then((res) => {
+          res = resData.HOME;
+          res = res || {};
+          const {data, success} = res;
+          if (success) {
+            commit(actionTypes.SELECT_QRCODE_SUCCESS, data);
+          } else {
+            commit(actionTypes.SELECT_QRCODE_FAILURE);
+          }
+          resolve(res);
+        })
+        .catch((err) => {
+          commit(actionTypes.SELECT_QRCODE_FAILURE);
+          reject(err);
+        });
+    });
   });
-};
 /**
  *
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectProduct = () => {
-  commit(actionTypes.SELECT_PRODUCT_REQUEST);
-  return new Promise((resolve, reject) => {
-    axios.post(apis.selectProduct)
-      .then((res) => {
-        res = resData.ZFYM;
-        res = res || {};
-        const {data, success} = res;
-        if (success) {
-          commit(actionTypes.SELECT_PRODUCT_SUCCESS, data);
-        } else {
+export const ajaxRequestSelectProduct = createAction(
+  actionTypes.SELECT_PRODUCT_REQUEST, () => {
+    return new Promise((resolve, reject) => {
+      axios.post(apis.selectProduct)
+        .then((res) => {
+          res = resData.CART;
+          res = res || {};
+          const {data, success} = res;
+          if (success) {
+            commit(actionTypes.SELECT_PRODUCT_SUCCESS, data);
+          } else {
+            commit(actionTypes.SELECT_PRODUCT_FAILURE);
+          }
+          resolve(res);
+        })
+        .catch((err) => {
           commit(actionTypes.SELECT_PRODUCT_FAILURE);
-        }
-        resolve(res);
-      })
-      .catch((err) => {
-        commit(actionTypes.SELECT_PRODUCT_FAILURE);
-        reject(err);
-      });
+          reject(err);
+        });
+    });
   });
-};

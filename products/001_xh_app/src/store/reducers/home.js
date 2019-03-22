@@ -3,10 +3,10 @@ import * as actionTypes from '../actionTypes';
 import * as states from '../states';
 
 const actions = {
-  [actionTypes.SELECT_PAYMENT_REQUEST](state) {
+  [actionTypes.SELECT_QRCODE_REQUEST](state) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      qrcode: Object.assign({}, state.qrcode, {
         isLoading: true,
         isSuccess: false,
         isFailure: false,
@@ -14,10 +14,10 @@ const actions = {
       })
     };
   },
-  [actionTypes.SELECT_PAYMENT_SUCCESS](state, action) {
+  [actionTypes.SELECT_QRCODE_SUCCESS](state, action) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      qrcode: Object.assign({}, state.qrcode, {
         isLoading: false,
         isSuccess: true,
         isFailure: false,
@@ -25,10 +25,10 @@ const actions = {
       })
     };
   },
-  [actionTypes.SELECT_PAYMENT_FAILURE](state) {
+  [actionTypes.SELECT_QRCODE_FAILURE](state) {
     return {
       ...state,
-      payment: Object.assign({}, state.payment, {
+      qrcode: Object.assign({}, state.qrcode, {
         isLoading: false,
         isSuccess: false,
         isFailure: true,

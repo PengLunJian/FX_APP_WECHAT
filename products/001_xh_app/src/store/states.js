@@ -1,5 +1,5 @@
 export const HOME_STATE = {
-  payment: {
+  qrcode: {
     isLoading: false,
     isSuccess: false,
     isFailure: false,
@@ -7,7 +7,7 @@ export const HOME_STATE = {
   }
 };
 
-export const ZFYM_STATE = {
+export const CART_STATE = {
   product: {
     isLoading: false,
     isSuccess: false,

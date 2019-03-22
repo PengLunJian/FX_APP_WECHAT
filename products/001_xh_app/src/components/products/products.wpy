@@ -52,7 +52,7 @@
         </view>
         <view class="footer-item">
           <view class="btn btn-default">自付</view>
-          <view class="btn btn-confirm">代付</view>
+          <view class="btn btn-confirm" @tap="onHandleConfirm">代付</view>
         </view>
       </view>
     </view>
@@ -62,6 +62,7 @@
 <script>
   import wepy from 'wepy';
   import * as utils from '../../utils';
+  import * as routes from '../../router';
 
   import Product from '../product/product';
 
@@ -76,6 +77,14 @@
 
     data = {
       isShow: false
+    }
+
+    methods = {
+      onHandleConfirm() {
+        wx.navigateTo({
+          url: routes.HOME.path
+        });
+      }
     }
 
     props = {

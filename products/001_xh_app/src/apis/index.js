@@ -6,8 +6,8 @@ const apis = {
   headers: {
     'Content-Type': 'application/json; charset=UTF-8'
   },
-  selectPayment: {
-    url: 'select/payment'
+  selectQRCode: {
+    url: 'select/qrcode'
   },
   selectProduct: {
     url: 'select/product'

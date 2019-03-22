@@ -8,7 +8,7 @@ export const HOME = {
   }
 };
 
-export const ZFYM = {
+export const CART = {
   success: utils.success(),
   data: [{}, {}, {}, {}, {}]
 };

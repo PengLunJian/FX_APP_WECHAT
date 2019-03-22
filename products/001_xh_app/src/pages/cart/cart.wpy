@@ -4,7 +4,7 @@
 </style>
 
 <template>
-  <view class="XH_NCYD_ZFYM">
+  <view class="XH_NCYD_CART">
     <Loading :isLoading.sync="isLoading"></Loading>
     <Empty :isSuccess.sync="isSuccess" :isData.sync="isData"></Empty>
     <Error :isFailure.sync="isFailure" @onRefresh="onRefresh"></Error>
